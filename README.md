@@ -22,10 +22,15 @@ Any libraries or dependencies it needs , System tools and settings
 <details>
 <summary><strong>to understand this better</strong> (click to expand)</summary>
 This feature is currently experimental.
+<strong> namespaces </strong>
+Namespaces are a feature of the Linux kernel that partitions kernel resources such that one set of processes sees one set of resources while another set of processes sees a different set of resources.
 
-- It may change in future releases.
-- Feedback is welcome.
-- See the documentation for more details.
+Docker uses namespaces to provide the isolated workspace called the container. When you run a container, Docker creates a set of namespaces for that container.
+
+<strong> Control Groups </strong>
+are a Linux feature that allows you to allocate and manage system resource among processes.Cgroups limit what resources you can use meanwhile namespaces limit what you can see .
+
+
 
 </details>
 
@@ -33,3 +38,7 @@ This feature is currently experimental.
 - https://www.reddit.com/r/docker/comments/keq9el/please_someone_explain_docker_to_me_like_i_am_an/
 - https://medium.com/@imyzf/inception-3979046d90a0
 - https://www.youtube.com/watch?v=DQdB7wFEygo
+- https://harsh05.medium.com/understanding-namespaces-in-docker-0bbcf7697775
+- https://medium.com/@dmosyan/linux-cgroups-explained-how-containers-use-it-c99eebb8c9c6
+- https://blog.nginx.org/blog/what-are-namespaces-cgroups-how-do-they-work
+- https://atlantbh.com/blog/how-docker-containers-work-under-the-hood-namespaces-and-cgroups/
