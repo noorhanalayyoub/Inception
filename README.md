@@ -11,8 +11,12 @@ to understand docker we must first understand what containers are
   - Docker is a tool designed to allow you to build, deploy and run applications in an isolated and consistent manner across different machines and operating systems
 ## Docker Image
 - Docker Image is a lightweight executable package that includes everything the application needs to run
-
-# Resources
+  ## what is the main difference between docker and virtual machines ?
+  - docker virtualizes the application layer while virtual machines virtualize the hardware.
+  - docker images are also significantly smaller than virtual machines
+  - docker can only run on linux disros meanwhile VMs can run on any host OS
+  - <sub> **Note:** though its worth mentioning that docker desktop has been developed to run on windows and macOS by using a hypervisor layer with a lightwieght linux disro 
+## Resources
 - https://www.reddit.com/r/docker/comments/keq9el/please_someone_explain_docker_to_me_like_i_am_an/
 - https://medium.com/@imyzf/inception-3979046d90a0
 - https://www.youtube.com/watch?v=DQdB7wFEygo
