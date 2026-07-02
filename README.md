@@ -48,3 +48,4 @@ PID 1 has two purposes:
 - https://medium.com/@dmosyan/linux-cgroups-explained-how-containers-use-it-c99eebb8c9c6
 - https://blog.nginx.org/blog/what-are-namespaces-cgroups-how-do-they-work
 - https://atlantbh.com/blog/how-docker-containers-work-under-the-hood-namespaces-and-cgroups/
+- https://medium.com/@fernando.harsha2016/why-your-docker-container-wont-stop-gracefully-understanding-pid-1-and-process-management-569c44dce004
