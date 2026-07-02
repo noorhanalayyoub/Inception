@@ -30,10 +30,15 @@ Docker uses namespaces to provide the isolated workspace called the container. W
 <strong> Control Groups </strong>
 are a Linux feature that allows you to allocate and manage system resource among processes.Cgroups limit what resources you can use meanwhile namespaces limit what you can see .
 
-
-
 </details>
+# what is PID 1? 
 
+a process specifically designed to manage the entire system
+
+PID 1 has two purposes:
+
+- automatically reparent orphand zombie processses into PID 1
+- the kernel expects PID 1 itself to explicitly define what to do with each signal. If PID 1 doesn't set up a handler for a signal, that signal gets silently ignored.
 ## Resources
 - https://www.reddit.com/r/docker/comments/keq9el/please_someone_explain_docker_to_me_like_i_am_an/
 - https://medium.com/@imyzf/inception-3979046d90a0
