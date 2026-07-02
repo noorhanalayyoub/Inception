@@ -31,6 +31,7 @@ Docker uses namespaces to provide the isolated workspace called the container. W
 are a Linux feature that allows you to allocate and manage system resource among processes.Cgroups limit what resources you can use meanwhile namespaces limit what you can see .
 
 </details>
+
 # what is PID 1? 
 
 a process specifically designed to manage the entire system
