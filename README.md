@@ -45,6 +45,7 @@ PID 1 has two purposes:
 
  # Dockerd
  dockerd is jus "Docker Daemon" a background process responsible for managing Docker containers on a system.
+ <details>
 <summary> more on how it actually works </summary>
 Dockerd is always listening for requests from the API client (docker CLI)
 - it builds docker images and manages the network 
@@ -55,7 +56,7 @@ How it Works?
     The Docker CLI sends an API request to dockerd.
     dockerd processes the request and performs the necessary actions.
 
-
+</details>
  
 ## Resources
 - https://www.reddit.com/r/docker/comments/keq9el/please_someone_explain_docker_to_me_like_i_am_an/
