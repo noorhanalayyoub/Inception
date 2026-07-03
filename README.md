@@ -76,7 +76,9 @@ How it Works?
 
 </details>
 
- 
+## Steps of the project
+
+
 ## Resources
 - https://github.com/vbachele/Inception (README and steps)
 - https://dev.to/alejiri/docker-nginx-wordpress-mariadb-tutorial-inception42-1eok (project walkthrough) 
