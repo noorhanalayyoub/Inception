@@ -76,7 +76,23 @@ How it Works?
 
 </details>
 
+# Important commands you must know 
 
+```
+docker images #list images 
+```
+
+  ```
+docker ps -a #list all contianers (-a for stopped ones as well)
+  ```
+```
+docker network ls          # see all networks Docker knows about
+docker network inspect <network_name>   # see which containers are attached, and their internal IPs
+```
+
+
+# Docker Networks 
+how containers talk to each other and the outside world . its like a virtual switch that connects containers 
 
 ## Resources
 - https://github.com/vbachele/Inception (README and steps)
