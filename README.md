@@ -40,6 +40,16 @@ PID 1 has two purposes:
 
 - automatically reparent orphand zombie processses into PID 1
 - the kernel expects PID 1 itself to explicitly define what to do with each signal. If PID 1 doesn't set up a handler for a signal, that signal gets silently ignored.
+
+ # what is a daemon ? 
+ just a program that runs quietly in the background, with no direct interaction from a user sitting at a terminal, and it typically starts up automatically and just keeps running indefinitely.Systems often start daemons at boot time that will respond to network requests, hardware activity, or other programs by performing some task.
+
+ # Dockerd
+ dockerd is jus "Docker Daemon" a background process responsible for managing Docker containers on a system.
+<summary> more on how t actually works </summary>
+
+<details> </details>
+ 
 ## Resources
 - https://www.reddit.com/r/docker/comments/keq9el/please_someone_explain_docker_to_me_like_i_am_an/
 - https://medium.com/@imyzf/inception-3979046d90a0
