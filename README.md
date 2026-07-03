@@ -76,7 +76,6 @@ How it Works?
 
 </details>
 
-## Steps of the project
 
 
 ## Resources
