@@ -90,7 +90,7 @@ docker network ls          # see all networks Docker knows about
 docker network inspect <network_name>   # see which containers are attached, and their internal IPs
 ```
 ```
-docker network create (network name)
+docker network create network_name #create docker network  
 ``` 
 
 
