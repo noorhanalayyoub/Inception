@@ -94,6 +94,24 @@ docker network inspect <network_name>   # see which containers are attached, and
 # Docker Networks 
 how containers talk to each other and the outside world . its like a virtual switch that connects containers 
 
+# what is yaml
+YAML is a simple, human-readable format used to store and organize data.
+
+It is not a programming language — instead, it is used to describe configuration settings that computers can easily read.
+
+YAML is commonly used in tools like Docker Compose to define how applications and services should run.
+
+example yaml file
+```
+version: "3.8"
+
+services:
+  web:
+    image: nginx
+    ports:
+      - "8080:80"
+```
+
 ## Resources
 - https://github.com/vbachele/Inception (README and steps)
 - https://dev.to/alejiri/docker-nginx-wordpress-mariadb-tutorial-inception42-1eok (project walkthrough)
