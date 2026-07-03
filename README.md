@@ -89,6 +89,9 @@ docker ps -a #list all contianers (-a for stopped ones as well)
 docker network ls          # see all networks Docker knows about
 docker network inspect <network_name>   # see which containers are attached, and their internal IPs
 ```
+```
+docker network create (network name)
+``` 
 
 
 # Docker Networks 
