@@ -46,9 +46,9 @@ PID 1 has two purposes:
 
  # Dockerd
  dockerd is jus "Docker Daemon" a background process responsible for managing Docker containers on a system.
-<summary> more on how t actually works </summary>
+<summary> more on how it actually works </summary>
 
-<details> </details>
+
  
 ## Resources
 - https://www.reddit.com/r/docker/comments/keq9el/please_someone_explain_docker_to_me_like_i_am_an/
