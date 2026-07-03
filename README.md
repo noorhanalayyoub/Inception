@@ -19,6 +19,24 @@ to understand docker we must first understand what containers are
 ## Docker Image vs Docker Container
 Think of an image as a recipe or blueprint — a snapshot of everything needed to run a piece of software,The code itself, The programming language runtime (e.g., Python, Node.js)
 Any libraries or dependencies it needs , System tools and settings
+
+# What is a docker file ? 
+A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. 
+example 
+```
+FROM node:18
+WORKDIR /app
+COPY . .
+RUN npm install
+CMD ["node", "server.js"]
+```
+A Dockerfile builds a Docker image by executing instructions top to bottom. Instructions that modify the filesystem (FROM, RUN, COPY, ADD) each produce a new, cached layer — a snapshot of the files added or changed at that step. Instructions like CMD, ENV, EXPOSE, and WORKDIR don't touch the filesystem . Layers are stacked and merged into the final image's filesystem 
+
+- why does this layering matter ?
+  Docker is smart about reusing layers it's already built, as long as nothing changed. So if you only edit your app's code and rebuild, Docker can skip re-running FROM and reuse the cached Node.js base layer — it only needs to redo the layers after the point where something actually changed
+
+
+
 <details>
 <summary><strong>to understand this better</strong> (click to expand)</summary>
 <strong> namespaces </strong>
@@ -45,8 +63,8 @@ PID 1 has two purposes:
 
  # Dockerd
  dockerd is jus "Docker Daemon" a background process responsible for managing Docker containers on a system.
- <details>
-<summary> more on how it actually works </summary>
+<details>
+<summary>more on how it actually works</summary>
 Dockerd is always listening for requests from the API client (docker CLI)
 - it builds docker images and manages the network 
 - runs and stops containers 
@@ -57,13 +75,16 @@ How it Works?
     dockerd processes the request and performs the necessary actions.
 
 </details>
+
  
 ## Resources
+- https://github.com/vbachele/Inception (README and steps) 
 - https://www.reddit.com/r/docker/comments/keq9el/please_someone_explain_docker_to_me_like_i_am_an/
 - https://medium.com/@imyzf/inception-3979046d90a0
 - https://www.youtube.com/watch?v=DQdB7wFEygo
 - https://harsh05.medium.com/understanding-namespaces-in-docker-0bbcf7697775
 - https://medium.com/@dmosyan/linux-cgroups-explained-how-containers-use-it-c99eebb8c9c6
 - https://blog.nginx.org/blog/what-are-namespaces-cgroups-how-do-they-work
+- https://medium.com/@ak_gaur/docker-daemon-and-dockerd-a-detailed-explanation-with-examples-d1db76ff5c2d (Dockerd)
 - https://atlantbh.com/blog/how-docker-containers-work-under-the-hood-namespaces-and-cgroups/
 - https://medium.com/@fernando.harsha2016/why-your-docker-container-wont-stop-gracefully-understanding-pid-1-and-process-management-569c44dce004
