@@ -96,7 +96,8 @@ how containers talk to each other and the outside world . its like a virtual swi
 
 ## Resources
 - https://github.com/vbachele/Inception (README and steps)
-- https://dev.to/alejiri/docker-nginx-wordpress-mariadb-tutorial-inception42-1eok (project walkthrough) 
+- https://dev.to/alejiri/docker-nginx-wordpress-mariadb-tutorial-inception42-1eok (project walkthrough)
+- https://www.geeksforgeeks.org/linux-unix/what-type-of-language-is-yaml/ (yaml intro)
 - https://www.reddit.com/r/docker/comments/keq9el/please_someone_explain_docker_to_me_like_i_am_an/
 - https://medium.com/@imyzf/inception-3979046d90a0
 - https://www.youtube.com/watch?v=DQdB7wFEygo
