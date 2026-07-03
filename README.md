@@ -21,7 +21,6 @@ Think of an image as a recipe or blueprint — a snapshot of everything needed t
 Any libraries or dependencies it needs , System tools and settings
 <details>
 <summary><strong>to understand this better</strong> (click to expand)</summary>
-This feature is currently experimental.
 <strong> namespaces </strong>
 Namespaces are a feature of the Linux kernel that partitions kernel resources such that one set of processes sees one set of resources while another set of processes sees a different set of resources.
 
@@ -47,6 +46,14 @@ PID 1 has two purposes:
  # Dockerd
  dockerd is jus "Docker Daemon" a background process responsible for managing Docker containers on a system.
 <summary> more on how it actually works </summary>
+Dockerd is always listening for requests from the API client (docker CLI)
+- it builds docker images and manages the network 
+- runs and stops containers 
+How it Works?
+
+    The user runs a Docker command (docker run, docker ps, etc.).
+    The Docker CLI sends an API request to dockerd.
+    dockerd processes the request and performs the necessary actions.
 
 
  
