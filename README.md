@@ -115,6 +115,48 @@ services:
       - "8080:80"
 ```
 
+outline for your project
+```
+inception/
+│
+├── Makefile
+├── docker-compose.yml
+├── .env
+│
+├── secrets/                 # (optional if your campus allows Docker secrets)
+│
+├── srcs/
+│   │
+│   ├── requirements/
+│   │   │
+│   │   ├── nginx/
+│   │   │   ├── Dockerfile
+│   │   │   ├── conf/
+│   │   │   │   └── nginx.conf
+│   │   │   └── tools/
+│   │   │       └── setup.sh
+│   │   │
+│   │   ├── wordpress/
+│   │   │   ├── Dockerfile
+│   │   │   ├── conf/
+│   │   │   │   ├── www.conf
+│   │   │   │   └── wp-config.php
+│   │   │   └── tools/
+│   │   │       └── setup.sh
+│   │   │
+│   │   └── mariadb/
+│   │       ├── Dockerfile
+│   │       ├── conf/
+│   │       │   └── my.cnf
+│   │       └── tools/
+│   │           └── setup.sh
+│   │
+│   └── bonus/               # leave empty until mandatory is done
+│
+└── data/
+    ├── mariadb/
+    └── wordpress/
+```
 ## Resources
 - https://github.com/vbachele/Inception (README and steps)
 - https://dev.to/alejiri/docker-nginx-wordpress-mariadb-tutorial-inception42-1eok (project walkthrough)
