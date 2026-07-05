@@ -177,6 +177,29 @@ User Browser
 # Importance of volumes ? 
 containers are ephemeral by default .They are external storage systems attached to containers to preserve data beyond container lifecycle.
 
+# Getting started with the scripts 
+-mariadb setup script
+```
+Has this database already been initialized?"
+
+If no:
+
+initialize MariaDB
+create the WordPress database
+create the WordPress user
+grant privileges
+
+If yes:
+
+skip all of that
+
+Finally:
+
+start MariaDB as PID 1.
+```
+
+- 
+
 ## Resources
 - https://github.com/vbachele/Inception (README and steps)
 - https://dev.to/alejiri/docker-nginx-wordpress-mariadb-tutorial-inception42-1eok (project walkthrough)
