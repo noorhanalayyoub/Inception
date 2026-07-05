@@ -157,6 +157,23 @@ inception/
     ├── mariadb/
     └── wordpress/
 ```
+Archeticutre
+```
+User Browser
+     |
+     | HTTPS (port 443)
+     v
+   NGINX (reverse proxy)
+     |
+     | FastCGI (port 9000)
+     v
+ WordPress (PHP-FPM)
+     |
+     | SQL (port 3306)
+     v
+ MariaDB
+```
+
 ## Resources
 - https://github.com/vbachele/Inception (README and steps)
 - https://dev.to/alejiri/docker-nginx-wordpress-mariadb-tutorial-inception42-1eok (project walkthrough)
