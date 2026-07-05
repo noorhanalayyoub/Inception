@@ -174,6 +174,9 @@ User Browser
  MariaDB
 ```
 
+# Importance of volumes ? 
+containers are ephemeral by default .They are external storage systems attached to containers to preserve data beyond container lifecycle.
+
 ## Resources
 - https://github.com/vbachele/Inception (README and steps)
 - https://dev.to/alejiri/docker-nginx-wordpress-mariadb-tutorial-inception42-1eok (project walkthrough)
