@@ -178,7 +178,7 @@ User Browser
 containers are ephemeral by default .They are external storage systems attached to containers to preserve data beyond container lifecycle.
 
 # Getting started with the scripts 
--mariadb setup script
+- mariadb setup script
 ```
 Has this database already been initialized?"
 
