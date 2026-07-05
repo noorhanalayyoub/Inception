@@ -163,6 +163,7 @@ inception/
 - https://www.geeksforgeeks.org/linux-unix/what-type-of-language-is-yaml/ (yaml intro)
 - https://medium.com/@yaswanthpedapatnam007/understanding-expose-in-docker-e3ea4b2f8109 (what expose actually does)
 - https://www.geeksforgeeks.org/linux-unix/shell-script-examples/ (into to shell scripting)
+- https://www.cloudflare.com/learning/ssl/what-is-https/ (what is https)
 - https://www.reddit.com/r/docker/comments/keq9el/please_someone_explain_docker_to_me_like_i_am_an/
 - https://medium.com/@imyzf/inception-3979046d90a0
 - https://www.youtube.com/watch?v=DQdB7wFEygo
