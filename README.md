@@ -174,6 +174,67 @@ User Browser
  MariaDB
 ```
 
+# nginx configurations 
+here is how a config file could look like 
+
+```
+http {
+
+    gzip on;
+
+    server {
+
+        server_name cats.com;
+
+        root /var/www/cats;
+
+    }
+
+    server {
+
+        server_name dogs.com;
+
+        root /var/www/dogs;
+
+    }
+```
+
+and the flow would look like 
+```
+Request
+
+↓
+
+HTTP protocol?
+
+↓
+
+Enter http context
+
+↓
+
+Which website?
+
+↓
+
+Enter server context
+
+↓
+
+Which URL?
+
+↓
+
+Enter location context
+
+↓
+
+Generate response
+```
+
+
+
+
 # Importance of volumes ? 
 containers are ephemeral by default .They are external storage systems attached to containers to preserve data beyond container lifecycle.
 
