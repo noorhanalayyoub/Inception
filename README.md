@@ -270,6 +270,7 @@ start MariaDB as PID 1.
 - https://www.cloudflare.com/learning/ssl/what-is-https/ (what is https)
 - https://www.docker.com/blog/docker-best-practices-choosing-between-run-cmd-and-entrypoint/ (entrypoint and cmd)
 - https://mohammadtaheri.medium.com/practical-nginx-a-beginners-step-by-step-project-guide-6f4c7540c06f (nginx configs basics)
+- https://strapi.io/blog/what-is-docker-compose-all-you-need-to-know (docker compose mechanism)
 - https://www.reddit.com/r/docker/comments/keq9el/please_someone_explain_docker_to_me_like_i_am_an/
 - https://medium.com/@imyzf/inception-3979046d90a0
 - https://www.youtube.com/watch?v=DQdB7wFEygo
