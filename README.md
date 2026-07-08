@@ -259,7 +259,17 @@ Finally:
 start MariaDB as PID 1.
 ```
 
-- 
+## difference between docker compose and docker run 
+```
+| **Dimension**       | **`docker run`**                                                              | **Docker Compose**                                                                                                                    |
+| ------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| **Paradigm**        | **Imperative** – You specify each command step by step.                       | **Declarative** – You describe the desired architecture in a YAML file, and Docker Compose creates it.                                |
+| **Scope**           | Manages **one container** per command.                                        | Manages an entire **multi-container application** (services, networks, and volumes).                                                  |
+| **Networking**      | Networks must be created and containers connected manually.                   | Automatically creates a network and provides **DNS resolution by service name**.                                                      |
+| **Reproducibility** | Requires manually rerunning commands or maintaining shell scripts.            | The complete application is defined in a version-controlled `docker-compose.yml` file, making it easy to recreate.                    |
+| **Teardown**        | Each container, network, and volume must be stopped and removed individually. | A single `docker compose down` command stops and removes all resources created by the Compose project (optionally including volumes). |
+
+```
 
 ## Resources
 - https://github.com/vbachele/Inception (README and steps)
