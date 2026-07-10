@@ -269,6 +269,15 @@ start MariaDB as PID 1.
 | **Reproducibility** | Requires manually rerunning commands or maintaining shell scripts.            | The complete application is defined in a version-controlled `docker-compose.yml` file, making it easy to recreate.                    |
 | **Teardown**        | Each container, network, and volume must be stopped and removed individually. | A single `docker compose down` command stops and removes all resources created by the Compose project (optionally including volumes). |
 
+## writing your own docker compose 
+| Question                              | Example (NGINX) |
+| ------------------------------------- | --------------- |
+| How is it built?                      | `build`         |
+| Who can talk to it?                   | `networks`      |
+| Does the host need to reach it?       | `ports`         |
+| Does it need persistent/shared files? | `volumes`       |
+| Does it need configuration?           | `environment`   |
+| Does it depend on another service?    | `depends_on`    |
 
 
 ## Resources
