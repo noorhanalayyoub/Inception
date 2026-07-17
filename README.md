@@ -291,6 +291,7 @@ start MariaDB as PID 1.
 - https://mohammadtaheri.medium.com/practical-nginx-a-beginners-step-by-step-project-guide-6f4c7540c06f (nginx configs basics)
 - https://strapi.io/blog/what-is-docker-compose-all-you-need-to-know (docker compose mechanism)
 - https://medium.com/@oakley349/tls-basics-certificate-authorities-and-self-signed-certificates-77bc68bad12c (self signed certificates)
+- https://medium.com/@talyitzhak/understanding-digital-certificates-and-self-signed-certificates-b1cdca759bbc 9self signed certiicate)
 - https://www.reddit.com/r/docker/comments/keq9el/please_someone_explain_docker_to_me_like_i_am_an/
 - https://medium.com/@imyzf/inception-3979046d90a0
 - https://www.youtube.com/watch?v=DQdB7wFEygo
