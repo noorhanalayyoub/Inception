@@ -279,6 +279,38 @@ start MariaDB as PID 1.
 | Does it need configuration?           | `environment`   |
 | Does it depend on another service?    | `depends_on`    |
 
+## Docker Secrets
+Docker Secrets provide sensitive data (passwords, API keys, certificates, tokens) to containers without hardcoding them in Dockerfiles or Compose files.
+
+Why use secrets?
+
+❌ Hardcoded password
+
+environment:
+  MYSQL_ROOT_PASSWORD: superSecret123
+
+Problems:
+
+- Password is visible in docker-compose.yml.
+- Can be accidentally committed to Git.
+- May appear in image metadata or logs.
+
+Using a secret
+```
+secrets:
+  db_root_password:
+    file: ./secrets/db_root_password.txt
+```
+The password is stored in a separate file:
+
+secrets/
+└── db_root_password.txt
+
+Docker Secrets do not encrypt the password. They improve security by:
+
+Keeping secrets out of Dockerfiles and Compose files.
+Preventing accidental commits to version control (e.g., by adding the secrets/ directory to .gitignore).
+Providing secrets only to containers that require them.
 
 ## Resources
 - https://github.com/vbachele/Inception (README and steps)
