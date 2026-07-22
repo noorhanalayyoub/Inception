@@ -1,11 +1,12 @@
-FROM debian:bookworm
+FROM alpine:3.22
 
-RUN apt update && apt install -y mariadb-server
+RUN apk add --no-cache mariadb mariadb-client gettext
 
-RUN mkdir -p /run/mysqld && \
-    chown -R  mysql:mysql /run/mysqld
+RUN mkdir -p /run/mysqld /var/lib/mysql && \
+    chown -R  mysql:mysql /run/mysqld /var/lib/mysql
 
-COPY tools/setup.sh /setup.sh
+COPY tools/setup.sh /
+COPY tools/bootstrap.sql.template /
 RUN chmod +x /setup.sh
 
 EXPOSE 3306

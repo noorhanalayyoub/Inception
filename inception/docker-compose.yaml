@@ -58,10 +58,7 @@ services:
       - db_password
       - db_root_password
     healthcheck:
-      test: ["CMD-SHELL", "mysqladmin ping -h localhost -unalayyou -p$(cat /run/secrets/db_root_password) || exit 1"]
-      interval: 5s
-      timeout: 3s
-      retries: 5
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -p$(cat /run/secrets/db_root_password) || exit 1"]
     restart: always
 
 networks:
