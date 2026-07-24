@@ -20,7 +20,8 @@ if ! [ -d /var/lib/mysql/mysql ]; then # should be changed to inception_db later
 		--user=mysql \
 		--datadir="/var/lib/mysql" \
 		--skip-networking &
-
+	
+	# pid of most recently starred background process
 	PID="$!"
 
 	echo "Waiting for MariaDB to be ready..."
@@ -67,6 +68,11 @@ EOF
 fi
 
 echo "Starting MariaDB..."
+
+# started a temporary server while skip netowrking
+# unix socket created rather than tcp/ip socket
+# no process would attempt to connect to the db 
+# shut down temporary server and start real server
 
 mkdir -p /run/mysqld
 chown mysql:mysql /run/mysqld
