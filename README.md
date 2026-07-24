@@ -37,6 +37,8 @@ A Dockerfile builds a Docker image by executing instructions top to bottom. Inst
 
 
 
+
+
 <details>
 <summary><strong>to understand this better</strong> (click to expand)</summary>
 <strong> namespaces </strong>
@@ -325,6 +327,7 @@ Providing secrets only to containers that require them.
 - https://medium.com/@oakley349/tls-basics-certificate-authorities-and-self-signed-certificates-77bc68bad12c (self signed certificates)
 - https://medium.com/@talyitzhak/understanding-digital-certificates-and-self-signed-certificates-b1cdca759bbc (self signed certiicate)
 - https://www.reddit.com/r/docker/comments/keq9el/please_someone_explain_docker_to_me_like_i_am_an/
+- https://dev.to/arsalanmee/understanding-php-fpm-a-comprehensive-guide-3ng8 (php fpm)
 - https://komodor.com/learn/exit-codes-in-containers-and-kubernetes-the-complete-guide/ (exit codes , useful for debugging)
 - https://medium.com/@imyzf/inception-3979046d90a0
 - https://www.youtube.com/watch?v=DQdB7wFEygo
