@@ -3,6 +3,10 @@
 #exit immediately if any command fails 
 set -e
 
+MYSQL_PASSWORD=$(cat /run/secrets/db_user_password)
+WP_ADMIN_PASSWORD=$(cat /run/secrets/wp_admin_password)
+WP_USER_PASSWORD=$(cat /run/secrets/wp_user_password)
+
 echo "starting wordpress container"
 
 # checking if wp is installed

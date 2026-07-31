@@ -2,6 +2,9 @@
 # exit immediately if anything fails
 set -e
 
+MYSQL_PASSWORD=$(cat /run/secrets/db_user_password)
+MYSQL_ROOT_PASSWORD=$(cat /run/secrets/db_root_password)
+
 sed -i 's/^bind-address.*/bind-address = 0.0.0.0/' /etc/mysql/mariadb.conf.d/50-server.cnf
 
 if ! [ -d /var/lib/mysql/mysql ]; then # should be changed to inception_db later
