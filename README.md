@@ -321,6 +321,7 @@ Providing secrets only to containers that require them.
 - https://medium.com/@yaswanthpedapatnam007/understanding-expose-in-docker-e3ea4b2f8109 (what expose actually does)
 - https://www.geeksforgeeks.org/linux-unix/shell-script-examples/ (into to shell scripting)
 - https://www.cloudflare.com/learning/ssl/what-is-https/ (what is https)
+- https://claude.ai/share/0cc2ff3f-1cfc-4d8f-b7eb-504fde415914 (in depth explanation)
 - https://www.docker.com/blog/docker-best-practices-choosing-between-run-cmd-and-entrypoint/ (entrypoint and cmd)
 - https://mohammadtaheri.medium.com/practical-nginx-a-beginners-step-by-step-project-guide-6f4c7540c06f (nginx configs basics)
 - https://strapi.io/blog/what-is-docker-compose-all-you-need-to-know (docker compose mechanism)
