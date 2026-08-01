@@ -5,7 +5,6 @@ set -e
 MYSQL_PASSWORD=$(cat /run/secrets/db_user_password)
 MYSQL_ROOT_PASSWORD=$(cat /run/secrets/db_root_password)
 
-sed -i 's/^bind-address.*/bind-address = 0.0.0.0/' /etc/mysql/mariadb.conf.d/50-server.cnf
 
 if ! [ -d /var/lib/mysql/mysql ]; then # should be changed to inception_db later
 	echo "Initializing MariaDB..."
@@ -54,9 +53,9 @@ FLUSH PRIVILEGES;
 
 CREATE DATABASE IF NOT EXISTS ${MYSQL_DATABASE};
 
-CREATE USER IF NOT EXISTS '${MYSQL_USER}'@'%' IDENTIFIED BY '${MYSQL_PASSWORD}';
+CREATE USER IF NOT EXISTS '${MYSQL_USER}'@'localhost' IDENTIFIED BY '${MYSQL_PASSWORD}';
 
-GRANT ALL PRIVILEGES ON ${MYSQL_DATABASE}.* TO '${MYSQL_USER}'@'%';
+GRANT ALL PRIVILEGES ON ${MYSQL_DATABASE}.* TO '${MYSQL_USER}'@'localhost';
 
 ALTER USER 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}';
 
@@ -82,4 +81,5 @@ chown mysql:mysql /run/mysqld
 
 exec mysqld \
 	--user=mysql \
-	--datadir="/var/lib/mysql"
+	--datadir="/var/lib/mysql" \
+	--skip-networking

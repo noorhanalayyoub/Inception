@@ -14,13 +14,12 @@ services:
     container_name: mariadb
     env_file:
       - .env
-    networks:
-      - inception
     secrets:
       - db_user_password
       - db_root_password
     volumes:
       - mariadb_volume:/var/lib/mysql
+      - db_socket:/run/mysqld
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
 
@@ -38,6 +37,7 @@ services:
       - wp_user_password
     volumes:
       - wordpress_volume:/var/www/html
+      - db_socket:/run/mysqld
   
     depends_on:
       mariadb:
@@ -76,6 +76,8 @@ volumes:
       type: none
       o: bind # type is bind
       device: /home/nalayyou/data/wordpress
+  db_socket:
+    driver: local
 
 
 
