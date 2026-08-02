@@ -314,6 +314,7 @@ Keeping secrets out of Dockerfiles and Compose files.
 Preventing accidental commits to version control (e.g., by adding the secrets/ directory to .gitignore).
 Providing secrets only to containers that require them.
 
+
 ## Resources
 - https://github.com/vbachele/Inception (README and steps)
 - https://dev.to/alejiri/docker-nginx-wordpress-mariadb-tutorial-inception42-1eok (project walkthrough)
