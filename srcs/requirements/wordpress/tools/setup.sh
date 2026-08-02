@@ -31,10 +31,16 @@ if [ ! -f /var/www/html/wp-config.php ]; then
 
     # fix ownership so phpfpm can move freely
     chown -R www-data:www-data /var/www/html
+    
+    if [ "${HTTPS_PORT}" = "443" ]; then
+    	SITE_URL="https://${DOMAIN_NAME}"
+    else
+    	SITE_URL="https://${DOMAIN_NAME}:${HTTPS_PORT}"
+    fi
 
     su -s /bin/bash www-data -c "wp core install \
         --path=/var/www/html \
-        --url=${DOMAIN_NAME} \
+        --url=${SITE_URL} \
         --title=\"Inception\" \
         --admin_user=${WP_ADMIN} \
         --admin_password=${WP_ADMIN_PASSWORD} \

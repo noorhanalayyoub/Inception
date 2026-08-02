@@ -10,7 +10,7 @@ secrets:
 
 services:
   mariadb:
-    build: ./src/requirements/mariadb
+    build: ./requirements/mariadb
     container_name: mariadb
     env_file:
       - .env
@@ -25,7 +25,7 @@ services:
 
 
   wordpress:
-    build: ./src/requirements/wordpress
+    build: ./requirements/wordpress
     container_name: wordpress
     env_file:
       - .env
@@ -44,12 +44,12 @@ services:
         condition: service_healthy
 
   nginx:
-    build: ./src/requirements/nginx
+    build: ./requirements/nginx
     container_name: nginx
     env_file:
       - .env 
     ports:
-      - "443:443"
+      - "8000:443"
     networks:
       - inception
     volumes:
