@@ -2,9 +2,10 @@
 # exit immediately if anything fails
 set -e
 
-MYSQL_PASSWORD=$(cat /run/secrets/db_user_password)
-MYSQL_ROOT_PASSWORD=$(cat /run/secrets/db_root_password)
+sed -i 's/^bind-address.*/bind-address = 0.0.0.0/' /etc/mysql/mariadb.conf.d/50-server.cnf
 
+MYSQL_ROOT_PASSWORD=$(cat /run/secrets/db_root_password)
+MYSQL_PASSWORD=$(cat /run/secrets/db_user_password)
 
 if ! [ -d /var/lib/mysql/mysql ]; then # should be changed to inception_db later
 	echo "Initializing MariaDB..."
@@ -22,8 +23,7 @@ if ! [ -d /var/lib/mysql/mysql ]; then # should be changed to inception_db later
 		--user=mysql \
 		--datadir="/var/lib/mysql" \
 		--skip-networking &
-	
-	# pid of most recently starred background process
+
 	PID="$!"
 
 	echo "Waiting for MariaDB to be ready..."
@@ -53,9 +53,9 @@ FLUSH PRIVILEGES;
 
 CREATE DATABASE IF NOT EXISTS ${MYSQL_DATABASE};
 
-CREATE USER IF NOT EXISTS '${MYSQL_USER}'@'localhost' IDENTIFIED BY '${MYSQL_PASSWORD}';
+CREATE USER IF NOT EXISTS '${MYSQL_USER}'@'%' IDENTIFIED BY '${MYSQL_PASSWORD}';
 
-GRANT ALL PRIVILEGES ON ${MYSQL_DATABASE}.* TO '${MYSQL_USER}'@'localhost';
+GRANT ALL PRIVILEGES ON ${MYSQL_DATABASE}.* TO '${MYSQL_USER}'@'%';
 
 ALTER USER 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}';
 
@@ -71,15 +71,9 @@ fi
 
 echo "Starting MariaDB..."
 
-# started a temporary server while skip netowrking
-# unix socket created rather than tcp/ip socket
-# no process would attempt to connect to the db 
-# shut down temporary server and start real server
-
 mkdir -p /run/mysqld
 chown mysql:mysql /run/mysqld
 
 exec mysqld \
 	--user=mysql \
-	--datadir="/var/lib/mysql" \
-	--skip-networking
+	--datadir="/var/lib/mysql"

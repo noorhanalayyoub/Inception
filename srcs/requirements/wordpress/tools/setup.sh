@@ -3,13 +3,13 @@
 #exit immediately if any command fails 
 set -e
 
-MYSQL_PASSWORD=$(cat /run/secrets/db_user_password)
-WP_ADMIN_PASSWORD=$(cat /run/secrets/wp_admin_password)
-WP_USER_PASSWORD=$(cat /run/secrets/wp_user_password)
-
 echo "starting wordpress container"
 
 # checking if wp is installed
+
+WP_ADMIN_PASSWORD=$(cat /run/secrets/wp_admin_password)
+WP_USER_PASSWORD=$(cat /run/secrets/wp_user_password)
+MYSQL_PASSWORD=$(cat /run/secrets/db_user_password)
 
 
 if [ ! -f /var/www/html/wp-config.php ]; then
@@ -27,20 +27,14 @@ if [ ! -f /var/www/html/wp-config.php ]; then
     sed -i "s/database_name_here/${MYSQL_DATABASE}/" /var/www/html/wp-config.php
     sed -i "s/username_here/${MYSQL_USER}/" /var/www/html/wp-config.php
     sed -i "s/password_here/${MYSQL_PASSWORD}/" /var/www/html/wp-config.php
-    sed -i "s#localhost#localhost:/run/mysqld/mysqld.sock#" /var/www/html/wp-config.php
+    sed -i "s/localhost/mariadb/" /var/www/html/wp-config.php
 
     # fix ownership so phpfpm can move freely
     chown -R www-data:www-data /var/www/html
-    
-    if [ "${HTTPS_PORT}" = "443" ]; then
-    	SITE_URL="https://${DOMAIN_NAME}"
-    else
-    	SITE_URL="https://${DOMAIN_NAME}:${HTTPS_PORT}"
-    fi
 
     su -s /bin/bash www-data -c "wp core install \
         --path=/var/www/html \
-        --url=${SITE_URL} \
+        --url=${DOMAIN_NAME} \
         --title=\"Inception\" \
         --admin_user=${WP_ADMIN} \
         --admin_password=${WP_ADMIN_PASSWORD} \

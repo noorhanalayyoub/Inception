@@ -17,9 +17,12 @@ services:
     secrets:
       - db_user_password
       - db_root_password
+    ports:
+      - "3306"
+    networks:
+      - inception
     volumes:
       - mariadb_volume:/var/lib/mysql
-      - db_socket:/run/mysqld
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
 
@@ -35,10 +38,10 @@ services:
       - db_user_password
       - wp_admin_password
       - wp_user_password
+    ports:
+      - "9000"
     volumes:
-      - wordpress_volume:/var/www/html
-      - db_socket:/run/mysqld
-  
+      - wordpress_volume:/var/www/html 
     depends_on:
       mariadb:
         condition: service_healthy
@@ -49,7 +52,7 @@ services:
     env_file:
       - .env 
     ports:
-      - "8000:443"
+      - "443:443"
     networks:
       - inception
     volumes:
@@ -76,8 +79,3 @@ volumes:
       type: none
       o: bind # type is bind
       device: /home/nalayyou/data/wordpress
-  db_socket:
-    driver: local
-
-
-
