@@ -1,0 +1,81 @@
+secrets:
+  db_root_password:
+    file: ./secrets/db_root_password.txt
+  db_user_password:
+    file: ./secrets/db_user_password.txt
+  wp_admin_password:
+    file: ./secrets/wp_admin_password.txt
+  wp_user_password:
+    file: ./secrets/wp_user_password.txt
+
+services:
+  mariadb:
+    build: ./requirements/mariadb
+    container_name: mariadb
+    env_file:
+      - .env
+    secrets:
+      - db_user_password
+      - db_root_password
+    ports:
+      - "3306"
+    networks:
+      - inception
+    volumes:
+      - mariadb_volume:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+
+
+  wordpress:
+    build: ./requirements/wordpress
+    container_name: wordpress
+    env_file:
+      - .env
+    networks:
+      - inception
+    secrets:
+      - db_user_password
+      - wp_admin_password
+      - wp_user_password
+    ports:
+      - "9000"
+    volumes:
+      - wordpress_volume:/var/www/html 
+    depends_on:
+      mariadb:
+        condition: service_healthy
+
+  nginx:
+    build: ./requirements/nginx
+    container_name: nginx
+    env_file:
+      - .env 
+    ports:
+      - "443:443"
+    networks:
+      - inception
+    volumes:
+      - wordpress_volume:/var/www/html
+    depends_on:
+      - wordpress
+    
+
+networks:
+  inception:
+    driver: bridge #it is bridge by default , it can be mcvlan ipvlan and so on 
+
+
+volumes:
+  mariadb_volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind # type is bind
+      device: /home/nalayyou/data/mariadb
+  wordpress_volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind # type is bind
+      device: /home/nalayyou/data/wordpress

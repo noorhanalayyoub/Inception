@@ -1,6 +1,8 @@
-#!/bin/bash
+#!/bin/sh
+
+#exit immediately on errors
 set -e
-# Step 1: Generate a self-signed TLS certificate, if one doesn't already exist
+
 if [ ! -f /etc/ssl/certs/nginx-selfsigned.crt ]; then
     echo "No certificate found. Generating self-signed TLS certificate..."
     mkdir -p /etc/ssl/certs /etc/ssl/private
